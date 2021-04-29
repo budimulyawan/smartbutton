@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AllScripts>
+  <ButtonConf TerminalInteraction="True" ButtonName="Protas Entries" Description="Flight Ticketing DI Entries" QuickCommand="#PROTASDI">
+    <QuestionsBlock WindowFormTitle="Flight Ticketing DI Entries for Protas">
+      <TextBox VarName="CustomerNum" Question="Customer Number - eg-CO010376" Width="150" ToolTip="Customer Number - eg-CO010376" Watermark="CO010376">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="OfficeNum" Question="Your Office Number - eg 71" Width="150" ToolTip="Your Office Number - eg 71" Watermark="71">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="SalesManNum" Question="Your Salesman number-eg 5014" Width="150" ToolTip="Your Salesman number-eg 5014" Watermark="5014">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="ProtasUsername" Question="Protas Username and Date - eg LETICIACORD/LETICIACORD/01Mar19" Width="150" ToolTip="Protas Username and Date - eg LETICIACORD/LETICIACORD/01Mar19" Watermark="LETICIACORD/LETICIACORD/01MAR19">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="PrintingOffice" Question="Printing Office - Your Office eg 71" Width="150" ToolTip="Printing Office - Your Office eg 71" Watermark="71">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="OrderedBy" Question="Insert Ordered By - eg MICHELLE" Width="150" ToolTip="Insert Ordered By - eg MICHELLE" Watermark="ORDER NAME">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="CostCentre" Question="Insert your Cost Centre" Width="150" ToolTip="Insert your Cost Centre" Watermark="13311">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="EmployeeNum" Question="Insert Employee No" Width="150" ToolTip="Insert Employee No" Watermark="NEW STAFF">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="PurchaseOrder" Question="Insert Purchase Order No" Width="150" ToolTip="Insert Purchase Order No" Watermark="TO123456">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+    </QuestionsBlock>
+	<DateTime VarName="DateTime" DateTimeFormat="ddMMM" Language="en" AddOrRemoveDays="180" TimeZone="Namibia Standard Time"></DateTime>
+    <RunCommand StandardCommand="true">DI.X*-CORD-CU-[CustomerNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-OF-[OfficeNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-SA-[SalesManNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-S2-[SalesManNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-WF-[ProtasUsername]/8/PLS ISSUE</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-FP-1</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-PO-[PrintingOffice]/SA-[SalesManNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-VPAY-CC</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-MF</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-YR-[OrderedBy]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-CO-[CostCentre]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-EM-[EmployeeNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-RE-[PurchaseOrder]</RunCommand>
+    <RunCommand StandardCommand="true">RT.T/[DateTime]*KEEP PNR LIVE</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="LCC Passives" Description="LCC Passives Entries" QuickCommand="#LCCPASSIVE">
+    <QuestionsBlock WindowFormTitle="LCC Passives Entries">
+	<TextBlock Icon="Information">LCC Entries</TextBlock>
+      <TextBox VarName="AirlineCode" Question="Airline Code -eg JE" Width="150" ToolTip="Airline Code -eg JE" Watermark="JE">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="FlightNum" Question="Flight Number and Booking Class -eg 322Y" Width="150" ToolTip="Flight Number and Booking Class -eg 322Y" Watermark="322Y">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <DatePicker VarName="DepDate" Question="Departure Date" Width="120" DateFormat="ddMMM" />
+	  <TextBox VarName="DepTime" Question="Departure Time -eg 0900" Width="150" ToolTip="Departure Time -eg 0900" Watermark="0900">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+	  <TextBox VarName="ArrTime" Question="Arrival Time -eg 1100" Width="150" ToolTip="Arrival Time -eg 1100" Watermark="1100">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="Routing" Question="Routing - eg CPTJNB" Width="150" ToolTip="Routing - eg CPTJNB" Watermark="CPTJNB">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+	  <TextBlock Icon="Information">LCC DI Entries</TextBlock>
+      <TextBox VarName="SegmentNumbers" Question="Segment Numbers-eg 1.2" Width="150" ToolTip="Segment Numbers-eg 1.2" Watermark="1.2">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="NumbOfPax" Question="Number of Pax eg 1" Width="150" ToolTip="Number of Pax eg 1" Watermark="1">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="ProtasCode" Question="ProTas Vendor Code - eg- JE900007" Width="150" ToolTip="ProTas Vendor Code - eg- JE900007" Watermark="JE900007">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="ProtasDocNum" Question="ProTas Document Number - eg 47205" Width="150" ToolTip="ProTas Document Number - eg 47205" Watermark="47205">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="VendorLocator" Question="Airline Vendor Locator - eg ABCDEF" Width="150" ToolTip="Airline Vendor Locator - eg ABCDEF" Watermark="ABCDEF">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="TotalFare" Question="Fare Amount - eg 1407.90" Width="150" ToolTip="Fare Amount - eg 1407.90" Watermark="1407.90">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+	  <TextBox VarName="Taxes" Question="Applicable Taxes - eg TAX-ZV197.10/TAX-EV16.00/TAX-ZA173.00" Width="150" ToolTip="Applicable Taxes - eg TAX-ZV197.10/TAX-EV16.00/TAX-ZA173.00" Watermark="TAX-ZV197.10/TAX-EV16.00/TAX-ZA173.00">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">0[AirlineCode][FlightNum][DepDate][Routing]AK[NumbOfPax]/[DepTime][ArrTime]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-UT01-A-UT01-A-[SegmentNumbers]/X-TBO/V-[ProtasCode]/D-[ProtasDocNum/VR-[VendorLocator]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-UT01-A-UT01-A-[SegmentNumbers]/FA-[TotalFare]/AC-[AirlineCode]/[Taxes]</RunCommand>
+	    <ComboBox VarName="ifAddAnotherLcc" Question="Do you want to add another passive LCC segment?" ToolTip="Add another passive LCC segment?" IsFirstItemSelectionBlocked="True" SelectedItemIndex="1">
+      <ComboBoxItem Comment="Select"></ComboBoxItem>
+      <ComboBoxItem>Yes</ComboBoxItem>
+      <ComboBoxItem>No</ComboBoxItem>
+    </ComboBox>
+    <ConditionalAction Condition="ifAddAnotherLcc==Yes">
+      <True>
+        <RunOtherButton>LCC Passives</RunOtherButton>
+      </True>
+      <False></False>
+    </ConditionalAction>
+  </ButtonConf>
+<ButtonConf TerminalInteraction="True" ButtonName="Passive Hotel" Description="Add passive hotel segment" QuickCommand="#NONGDSHTL">
+    <QuestionsBlock WindowFormTitle="Passive Hotel Segment">
+	<TextBlock Icon="Information">Passive Hotel Entries</TextBlock>
+      <TextBox VarName="CityCode" Question="City/airport code" Width="40" ToolTip="City/airport code" Watermark="CPT">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <DatePicker VarName="CheckInDate" Question="Check-in date" Width="120" DateFormat="ddMMM" />
+      <DatePicker VarName="CheckOutDate" Question="Check-out date" Width="120" DateFormat="ddMMM" />
+      <TextBox VarName="HotelName" Question="Name of the hotel" Width="150" ToolTip="Name of the hotel" Watermark="Protea Fire and Ice">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+	  <TextBox VarName="HotelCode" Question="Hotel Code eg PR000070" Width="150" ToolTip="Hotel Code eg PR000070" Watermark="PR000070">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="RoomTypeCode" Question="Room type code" Width="40" ToolTip="Room type code" Watermark="DBL">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="CurrencyCode" Question="Currency code" Width="40" ToolTip="Currency code" Watermark="ZAR">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="RateAmount" Question="Daily rate amount" Width="40" ToolTip="Daily rate amount" Watermark="1000.00">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="ConfNumber" Question="Confirmation number" Width="80" ToolTip="Confirmation number" Watermark="123456789">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+	  <TextBlock Icon="Information">Passive Hotel DI Entries</TextBlock>
+	  <TextBox VarName="VoucherType" Question="Voucher Type eg HTLBB" Width="150" ToolTip="Voucher Type eg HTLBB" Watermark="HTLBB">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+	  <ComboBox VarName="PricePerDay" Question="Price Per Day Yes or No" ToolTip="Price Per Day Yes or No" IsFirstItemSelectionBlocked="True" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Yes">Y</ComboBoxItem>
+        <ComboBoxItem Comment="No">N</ComboBoxItem>
+      </ComboBox>
+      <TextBox VarName="InfoText" Question="Info Text Print eg 13" Width="150" ToolTip="Info Text Print eg 13" Watermark="13">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="EmailAdd" Question="Email Address eg leticia*clubtravel.co.za" Width="150" ToolTip="Email Address eg leticia*clubtravel.co.za" Watermark="leticia*clubtravel.co.za">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>      
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">0TURZZAK1HTL[CheckInDate]-OUT[CheckOutDate]/[CityCode]/HARP-[HotelCode]/HN-[HotelName]/RT-[RoomTypeCode]/CU-[CurrencyCode][RateAmount]/CF-[ConfNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-HT1-[CityCode][HotelCode]/VT-[VoucherType]/PPD-[PricePerDay]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-HT2-TX-P-[InfoText]</RunCommand>
+	<RunCommand StandardCommand="true">DI.X*-CORD-EIT-[EmailAdd]</RunCommand>
+    <ComboBox VarName="ifAddAnotherPassiveHTL" Question="Do you want to add another passive hotel segment?" ToolTip="Add another passive hotel segment?" IsFirstItemSelectionBlocked="True" SelectedItemIndex="1">
+      <ComboBoxItem Comment="Select"></ComboBoxItem>
+      <ComboBoxItem>Yes</ComboBoxItem>
+      <ComboBoxItem>No</ComboBoxItem>
+    </ComboBox>
+    <ConditionalAction Condition="ifAddAnotherPassiveHTL==Yes">
+      <True>
+        <RunOtherButton>Passive Hotel</RunOtherButton>
+      </True>
+      <False></False>
+    </ConditionalAction>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Land Only ProTas Entries" Description="Land Only ProTas Entries" QuickCommand="#LANDPRODI">
+    <QuestionsBlock WindowFormTitle="Land Only ProTas Entries">
+	<TextBlock Icon="Information">Protas Entries</TextBlock>
+      <TextBox VarName="CustNum" Question="Customer Number" Width="150" ToolTip="Customer Number" Watermark="">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="OfficeNum" Question="Your Office - eg 71" Width="150" ToolTip="Your Office - eg 71" Watermark="71">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="SalesManNum" Question="Your Salesman-eg 5014 " Width="150" ToolTip="Your Salesman-eg 5014 " Watermark="5014">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="ProtasUsername" Question="Protas Username and Date - eg LETICIACORD/LETICIACORD/01Mar19" Width="150" ToolTip="Protas Username and Date - eg LETICIACORD/LETICIACORD/01Mar19" Watermark="LETICIACORD/LETICIACORD/01MAR19">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+      <TextBox VarName="PrintingOffice" Question="Printing Office - Your Office eg 71" Width="150" ToolTip="Printing Office - Your Office eg 71" Watermark="71">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+	  <TextBlock Icon="Information">Client Preferred Entries</TextBlock>
+      <TextBox VarName="ClientPref" Question="Objective,O/N-eg Corporate Services O/N Ai197710" Width="150" ToolTip="Objective,O/N-eg Corporate Services O/N Ai197710" Watermark="Corporate Services O/N Ai197710">
+        <ValidationRules>
+          <Require ErrorMessage="This field is Mandatory"></Require>
+        </ValidationRules>
+        <DefaultValue></DefaultValue>
+      </TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">DI.X*-CORD-CU-[CustNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-OF-[OfficeNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-SA-[SalesManNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-S2-[SalesManNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-WF-[ProtasUsername]/8/PLS ISSUE</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-PO-[PrintingOffice]/SA-[SalesManNum]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-MF</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CORD-YR-[ClientPref]</RunCommand>
+  </ButtonConf>
+</AllScripts>

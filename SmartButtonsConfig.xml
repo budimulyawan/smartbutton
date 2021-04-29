@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AllScripts>
+  <ButtonConf TerminalInteraction="True" ButtonName="Accounting Information Club Travel" Description="Add Accounting Information" QuickCommand="#ACINFO">
+    <QuestionsBlock WindowFormTitle="Accounting Information Club Travel">
+      <TextBox VarName="OfficeNumber" Question="Office Number eg:10" Width="150" ToolTip="Office Number eg:10" Watermark="10"></TextBox>
+      <TextBox VarName="CustomerNumber" Question="Customer Number eg:HO00006" Width="150" ToolTip="Customer Number eg:HO00006" Watermark="H00006"></TextBox>
+      <TextBox VarName="SalesNumber" Question="Sales Number  eg: 1272" Width="150" ToolTip="Consultant Code eg - SS" Watermark="Sales Number"></TextBox>
+      <TextBox VarName="ProtasUsername" Question="Protas Username" Width="150" ToolTip="Protas UserName eg:GALILEO/GALILEO/29JAN18/8/ISSUED" Watermark="Protas Username"></TextBox>
+      <TextBox VarName="EmployeeNumber" Question="Employee Number" Width="150" ToolTip="Employee Number" Watermark="Employee Number"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-OF-[OfficeNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-CU-[CustomerNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-SA-[SalesNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-PO-[OfficeNumber]/SA-[SalesNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-S2-[SalesNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-MF</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-WF-[ProtasUsername]</RunCommand>
+    <RunCommand StandardCommand="true">DI.X*-CLHO-EM-[EmployeeNumber]</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK IT Adult FQ" Description="EK IT Adult Fare Quoting Request" QuickCommand="#EKADTFQ">
+    <QuestionsBlock WindowFormTitle="EK IT Adult Fare Quoting Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX/CEK:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Club Exclusive Adult FQ" Description="EK Club Exclusive Adult Fare Quoting Request (PKY)" QuickCommand="#EKADTEXCLFQ">
+    <QuestionsBlock WindowFormTitle="EK Club Exclusive Adult Fare Quoting Request (PKY)">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]-:PKY:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Club Exclusive Child FQ" Description="EK Club Exclusive Child Fare Quoting Request (PKY)" QuickCommand="#EKCNNEXCLFQ">
+    <QuestionsBlock WindowFormTitle="EK Club Exclusive Child Fare Quoting Request (PKY)">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]-:PKY:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Club Group Deal Adult FQ" Description="EK Club Group Deal Adult Fare Request" QuickCommand="#EKADTGRPFQ">
+    <QuestionsBlock WindowFormTitle="EK Club Group Deal Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]-ZGD2:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Club Group Deal Child FQ" Description="EK Club Group Deal Child Fare Request" QuickCommand="#EKCNNGRPFQ">
+    <QuestionsBlock WindowFormTitle="EK Club Group Deal Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]-ZGD2:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Air Sea Adult FQ" Description="EK Air Sea Adult Fare Request" QuickCommand="#EKAIRSEA">
+    <QuestionsBlock WindowFormTitle="EK Air Sea Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*PFA:ZAR:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Marine and Marine long term FQ" Description="EK Marine Fares and Marine long term promo" QuickCommand="#EKMARINE2">
+    <QuestionsBlock WindowFormTitle="EK Marine Fares and Marine long term promo">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*SEA::USD:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="SAA Youth FQ" Description="SAA Youth Fare Request" QuickCommand="#SAAYOUTH">
+    <QuestionsBlock WindowFormTitle="SAA Youth Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*YTH/CSA:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="SAA IT Adult FQ" Description="SAA IT Adult Fare Quote Request" QuickCommand="#SAAIT">
+    <QuestionsBlock WindowFormTitle="SAA IT Adult Fare Quote Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]-W312212:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="SAA IT Child FQ" Description="SAA IT Child Fare Quote Request" QuickCommand="#SAAITCNN">
+    <QuestionsBlock WindowFormTitle="SAA IT Child Fare Quote Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*C[PaxAge]-W312212:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="SAA IT Infant FQ" Description="SAA IT Infant Fare Quote Request" QuickCommand="#SAAITINF">
+    <QuestionsBlock WindowFormTitle="SAA IT Infant Fare Quote Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*INF-W312212:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="SAA Marine FQ" Description="SAA Marine Fare Quote Request" QuickCommand="#SAAMARINE">
+    <QuestionsBlock WindowFormTitle="SAA Marine Fare Quote Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*SEA:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="BA International Private Adult FQ" Description="BA International Private Adult Fare Request" QuickCommand="#BAINTADT">
+    <QuestionsBlock WindowFormTitle="BA International Private Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]:P-G554329</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="BA International Private Child FQ" Description="BA International Private Child Fare Request" QuickCommand="#BAINTCNN">
+    <QuestionsBlock WindowFormTitle="BA International Private Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*C[PaxAge]:P-G554329</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="BA International Private Infant FQ" Description="BA International Private Infant Fare Request" QuickCommand="#BAINTINF">
+    <QuestionsBlock WindowFormTitle="BA International Private Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*INF:P-G554329</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="BA Entertainment FQ" Description="BA Entertainment Fare Request" QuickCommand="#BAENT">
+    <QuestionsBlock WindowFormTitle="BA Entertainment Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]:P-G179985</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="MK IT Adult FQ" Description="MK IT Adult Fare Request" QuickCommand="#MKITADT">
+    <QuestionsBlock WindowFormTitle="MK IT Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]/CMK:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="MK IT Child FQ" Description="MK IT Child Fare Request" QuickCommand="#MKITCNN">
+    <QuestionsBlock WindowFormTitle="MK IT Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*C[PaxAge]/CMK:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="MK IT Infant FQ" Description="MK IT Infant Fare Request" QuickCommand="#MKITINF">
+    <QuestionsBlock WindowFormTitle="MK IT Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*INF/CMK:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="CX IT Fare Adult FQ" Description="CX IT Fare Adult Fare Request" QuickCommand="#CXITADT">
+    <QuestionsBlock WindowFormTitle="CX IT Fare Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX/CCX:P-TWS01</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="CX IT Child FQ" Description="CX IT Fare Child Fare Request" QuickCommand="#CXITCHD">
+    <QuestionsBlock WindowFormTitle="CX IT Fare Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*INN[PaxAge]/ACCITX:P-TWS01/CCX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="CX IT Fare Infant FQ" Description="CX IT Fare Infant Fare Request" QuickCommand="#CXITINF">
+    <QuestionsBlock WindowFormTitle="CX IT Fare Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITF/ACCITX:P-TWS01/CCX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="CX Corporate Deal FQ" Description="CX Corporate Deal Fare Request" QuickCommand="#CXCORP">
+    <QuestionsBlock WindowFormTitle="CX Corporate Deal Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]/CCX:P-OBT42</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="CX Marine FQ" Description="CX Marine Fare Request" QuickCommand="#CXMARINE">
+    <QuestionsBlock WindowFormTitle="CX Marine Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*SEA.LAX/CCX:P/ET</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EL AL Youth Deal FQ" Description="EL AL Youth Deal Fare Request" QuickCommand="#ELALYOUTH">
+    <QuestionsBlock WindowFormTitle="EL AL Youth Deal Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*YTH-ZAA00:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="KLM/AF Marine FQ" Description="KLM/AF Marine Fare Request" QuickCommand="#KLAFMARINE">
+    <QuestionsBlock WindowFormTitle="KLM/AF Marine Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*SEA/CAF:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="QF Adult FQ" Description="QF Adult Fare Request" QuickCommand="#QFADT">
+    <QuestionsBlock WindowFormTitle="QF Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX/CQF:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="QF Child FQ" Description="QF Child Fare Request" QuickCommand="#QFCHD">
+    <QuestionsBlock WindowFormTitle="QF Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*I[PaxAge]/CQF:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="QF Infant FQ" Description="QF Infant Fare Request" QuickCommand="#QFINF">
+    <QuestionsBlock WindowFormTitle="QF Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITF/CQF:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Singapore Airline Adult FQ" Description="Singapore Airline Adult Fare Request" QuickCommand="#SQADT">
+    <QuestionsBlock WindowFormTitle="Singapore Airline Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]/CSQ:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Singapore Airline Child FQ" Description="Singapore Airline Child Fare Request" QuickCommand="#SQCHD">
+    <QuestionsBlock WindowFormTitle="Singapore Airline Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*C[PaxAge]/CSQ:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Singapore Airline Infant FQ" Description="Singapore Airline Infant Fare Request" QuickCommand="#SQINF">
+    <QuestionsBlock WindowFormTitle="Singapore Airline Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*INF/CSQ:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="QR Marine Fare FQ" Description="QR Marine Fare Request" QuickCommand="#QRMARINE">
+    <QuestionsBlock WindowFormTitle="QR Marine Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]/CQR:P/ET*SEA::USD</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Ek IT Child FQ" Description="EK IT Child Fare Request" QuickCommand="#EKITCHD">
+    <QuestionsBlock WindowFormTitle="EK IT Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*I[PaxAge]/CEK:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Ek Infant IT FQ" Description="Ek Infant IT Fare Request" QuickCommand="#EKITINF">
+    <QuestionsBlock WindowFormTitle="Ek Infant IT Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITF/CEK:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="KQ IT Adult FQ" Description="KQ IT Adult Fare Request" QuickCommand="#KQITADT">
+    <QuestionsBlock WindowFormTitle="KQ IT Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX:P-CLUBHOLIDAYS/CKQ</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="KQ IT Child FQ" Description="KQ IT Child Fare Request" QuickCommand="#KQITCHD">
+    <QuestionsBlock WindowFormTitle="KQ IT Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*I[PaxAge]:P-CLUBHOLIDAYS/CKQ/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Air Austral IT FQ" Description="Air Austral IT Fare Request" QuickCommand="#UUITADT">
+    <QuestionsBlock WindowFormTitle="Air Austral IT Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX/CUU:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Air Seychelles IT Adult FQ" Description="Air Seychelles IT Adult Fare Request" QuickCommand="#HMITADT">
+    <QuestionsBlock WindowFormTitle="Air Seychelles IT Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX/CHM:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Air Seychelles IT Child FQ" Description="Air Seychelles IT Child Fare Request" QuickCommand="#HMITCHD">
+    <QuestionsBlock WindowFormTitle="Air Seychelles IT Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*I[PaxAge]/CHM:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Air Seychelles IT Infant FQ" Description="Air Seychelles IT Infant Fare Request" QuickCommand="#HMITINF">
+    <QuestionsBlock WindowFormTitle="Air Seychelles IT Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITF/CHM:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Club Group Deal Infant FQ" Description="EK Club Group Deal Infant Fare Request" QuickCommand="#EKINFGRPFQ">
+    <QuestionsBlock WindowFormTitle="EK Club Group Deal Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]-ZGD2:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Club Exclusive Infant FQ" Description="EK Club Exclusive Infant Fare Quoting Request (PKY)" QuickCommand="#EKINFEXCLFQ">
+    <QuestionsBlock WindowFormTitle="EK Club Exclusive Infant Fare Quoting Request (PKY)">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]-:PKY:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Air Sea Child FQ" Description="EK Air Sea Child Fare Request" QuickCommand="#EKAIRCHD">
+    <QuestionsBlock WindowFormTitle="EK Air Sea Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*C[PaxAge]/CEK:P/ACCPFA</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="EK Air Sea Infant FQ" Description="EK Air Sea Infant Fare Request" QuickCommand="#EKAIRINF">
+    <QuestionsBlock WindowFormTitle="EK Air Sea Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*INF/CEK:P/ACCPFA</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Latam IT Adult FQ" Description="Latam IT Adult Fare Request" QuickCommand="#LAITADT">
+    <QuestionsBlock WindowFormTitle="Latam IT Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX:P-TO</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Latam IT Child FQ" Description="Latam IT Child Fare Request" QuickCommand="#LAITCHD">
+    <QuestionsBlock WindowFormTitle="Latam IT Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*I[PaxAge]:P-TO/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Latam IT Infant FQ" Description="Latam IT Infant Fare Request" QuickCommand="#LAITINF">
+    <QuestionsBlock WindowFormTitle="Latam IT Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITF:P-TO/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Malawian IT Adult FQ" Description="Malawian IT Adult Fare Request" QuickCommand="#ETITADT">
+    <QuestionsBlock WindowFormTitle="Malawian IT Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITX:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Malawian IT Child FQ" Description="Malawian IT Child Fare Request" QuickCommand="#ETITCHD">
+    <QuestionsBlock WindowFormTitle="Malawian IT Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="1"></TextBox>
+      <TextBlock Icon="Information">Insert Pax Age for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxAge" Question="Insert Pax Age" Width="20" ToolTip="Insert Pax Age eg: 05" Watermark="05"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*I[PaxAge]/CET:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Malawian IT Infant FQ" Description="Malawian IT Infant Fare Request" QuickCommand="#ETITINF">
+    <QuestionsBlock WindowFormTitle="Malawian IT Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]*ITF/CET:P/ACCITX</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Air Mauritius Infant FQ" Description="Air Mauritius Infant Fare Request" QuickCommand="#MKITINF">
+    <QuestionsBlock WindowFormTitle="Air Mauritius Infant Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]/CMK:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Air Mauritius Adult FQ" Description="Air Mauritius Adult Fare Request" QuickCommand="#MKITADT">
+    <QuestionsBlock WindowFormTitle="Air Mauritius Adult Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]/CMK:P</RunCommand>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Air Mauritius Child FQ" Description="Air Mauritius Child Fare Request" QuickCommand="#MKITCHD">
+    <QuestionsBlock WindowFormTitle="Air Mauritius Child Fare Request">
+      <TextBlock Icon="Information">Insert Pax Number for Fare Quote Request</TextBlock>
+      <TextBox VarName="PaxNumber" Question="Insert Pax Number" Width="20" ToolTip="Insert Pax Number" Watermark="10"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">NP.FQP[PaxNumber]/CMK:P</RunCommand>
+  </ButtonConf> 
+</AllScripts>

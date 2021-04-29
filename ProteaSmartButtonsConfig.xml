@@ -1,0 +1,210 @@
+<AllScripts>
+   <ButtonConf TerminalInteraction="True" ButtonName="Protea Travel Multi/Pax TASF" Description="Protea Travel Multi/Pax TASF" QuickCommand="#MUTLITASF">
+    <QuestionsBlock WindowFormTitle="Protea Travel Multi/Pax TASF">
+      <TextBox VarName="ServiceFeeAmt" Question="Service Fee Amount" Width="150" ToolTip="Service Fee Amount" Watermark=""></TextBox>
+      <ComboBox VarName="ServiceFeeReasonCode" Question="Service Fee Reason Code" ToolTip="Service Fee Reason Code" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic">SER</ComboBoxItem>
+        <ComboBoxItem Comment="International">SEI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional">REE</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="TransactionType" Question="Transaction Type" ToolTip="Transaction Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Each">EA</ComboBoxItem>
+        <ComboBoxItem Comment="Per Invoice">IN</ComboBoxItem>
+        <ComboBoxItem Comment="Per Passenger">PX</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="MergeFee" Question="Merge Fee" ToolTip="Merge Fee" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Yes">Y</ComboBoxItem>
+        <ComboBoxItem Comment="No">N</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="ServiceFeeTravelType" Question="Service Fee Travel Type" ToolTip="Service Fee Travel Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Fee">DOM</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Redemption">DOR</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Revalidation">RVD</ComboBoxItem>
+        <ComboBoxItem Comment="International Business Class">ICB</ComboBoxItem>
+        <ComboBoxItem Comment="International Economy Class">ICE</ComboBoxItem>
+        <ComboBoxItem Comment="International First Class">ICF</ComboBoxItem>
+        <ComboBoxItem Comment="International Redemption">INR</ComboBoxItem>
+        <ComboBoxItem Comment="International Fee">INT</ComboBoxItem>
+        <ComboBoxItem Comment="International Revalidation">RVI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Fee">REG</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Redemption">RER</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Revalidation">RVR</ComboBoxItem>
+        <ComboBoxItem Comment="International Premium Economy">IPE</ComboBoxItem>
+      </ComboBox>
+      <TextBox VarName="MPDNumber" Question="Insert ticket number MPDTASF number" Width="150" ToolTip="Insert ticket number MPD TASF number as follows:EG125445667MPD0098876" Watermark=""></TextBox>
+      <TextBox VarName="Remarks" Question="Remarks" Width="150" ToolTip="Freetext remarks if necessary" Watermark="Freetext remarks if necessary"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">DI.FT-S*[ServiceFeeAmt][TransactionType]/[ServiceFeeReasonCode]/[MergeFee]/TAS/[MPDNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-T*[ServiceFeeTravelType]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-M*[Remarks]</RunCommand>
+    <ComboBox VarName="ifAddAnotherMPDTASF" Question="Do you want to add another MPD TASF for a Second Pax?" ToolTip="Do you want to add another MPD TASF for a Second Pax?" SelectedItemIndex="1">
+      <ComboBoxItem>Yes</ComboBoxItem>
+      <ComboBoxItem>No</ComboBoxItem>
+    </ComboBox>
+    <ConditionalAction Condition="ifAddAnotherMPDTASF==Yes">
+      <True>
+        <RunOtherButton>Protea Travel Multi/Pax TASF</RunOtherButton>
+      </True>
+      <False></False>
+    </ConditionalAction>
+  </ButtonConf>
+  <ButtonConf TerminalInteraction="True" ButtonName="Protea Travel Accounting Information" Description="Add Accounting Information" QuickCommand="#ACINFO">
+    <QuestionsBlock WindowFormTitle="Protea Travel Accounting Information">
+      <TextBox VarName="DCode" Question="DCode" Width="150" ToolTip="DCode" Watermark="DCode"></TextBox>
+      <TextBox VarName="ConsultantName" Question="Consultant Name" Width="150" ToolTip="Consultant Name" Watermark="Consultant Name"></TextBox>
+      <TextBox VarName="OrderNumber" Question="Order Number" Width="150" ToolTip="Order Number" Watermark="Order Number"></TextBox>
+      <TextBox VarName="ServiceFee" Question="Service Fee" Width="150" ToolTip="Service Fee" Watermark="Service Fee"></TextBox>
+      <TextBox VarName="GEN" Question="GEN" Width="150" ToolTip="GEN" Watermark="GEN"></TextBox>
+      <TextBox VarName="HOF" Question="HOF" Width="150" ToolTip="HOF" Watermark="HOF"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">DI.FT-A*[DCode]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-C*[ConsultantName]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-O*[OrderNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-S*[ServiceFee]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-V*[GEN]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-Y*[HOF]</RunCommand>
+  </ButtonConf>
+ <ButtonConf TerminalInteraction="True" ButtonName="Protea Travel TASF" Description="Protea Travel TASF" QuickCommand="#PRTASF">
+    <QuestionsBlock WindowFormTitle="Protea Travel TASF">
+      <TextBox VarName="AccNumber" Question="Account Number" Width="150" ToolTip="Account Number" Watermark="A*"></TextBox>
+      <TextBox VarName="OrderNumber" Question="Order Number" Width="150" ToolTip="Order Number" Watermark="O*"></TextBox>
+      <TextBox VarName="ConsultantCode" Question="Consultant Code" Width="150" ToolTip="Consultant Code" Watermark="C*"></TextBox>
+      <TextBox VarName="ServiceFeeAmt" Question="Service Fee Amount" Width="150" ToolTip="Service Fee Amount" Watermark="S*"></TextBox>
+      <ComboBox VarName="TransactionType" Question="Transaction Type" ToolTip="Transaction Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Each">EA</ComboBoxItem>
+        <ComboBoxItem Comment="Per Invoice">IN</ComboBoxItem>
+        <ComboBoxItem Comment="Per Passenger">PX</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="ServiceFeeReasonCode" Question="Service Fee Reason Code" ToolTip="Service Fee Reason Code" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic">SER</ComboBoxItem>
+        <ComboBoxItem Comment="International">SEI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional">REE</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="MergeFee" Question="Merge Fee" ToolTip="Merge Fee" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Yes">Y</ComboBoxItem>
+        <ComboBoxItem Comment="No">N</ComboBoxItem>
+      </ComboBox>
+      <TextBox VarName="MPDNumber" Question="Insert ticket number MPDTASF number" Width="150" ToolTip="Insert ticket number MPD TASF number as follows:EG125445667MPD0098876" Watermark=""></TextBox>
+      <ComboBox VarName="ServiceFeeTravelType" Question="Service Fee Travel Type" ToolTip="Service Fee Travel Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Fee">DOM</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Redemption">DOR</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Revalidation">RVD</ComboBoxItem>
+        <ComboBoxItem Comment="International Business Class">ICB</ComboBoxItem>
+        <ComboBoxItem Comment="International Economy Class">ICE</ComboBoxItem>
+        <ComboBoxItem Comment="International First Class">ICF</ComboBoxItem>
+        <ComboBoxItem Comment="International Redemption">INR</ComboBoxItem>
+        <ComboBoxItem Comment="International Fee">INT</ComboBoxItem>
+        <ComboBoxItem Comment="International Revalidation">RVI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Fee">REG</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Redemption">RER</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Revalidation">RVR</ComboBoxItem>
+        <ComboBoxItem Comment="International Premium Economy">IPE</ComboBoxItem>
+      </ComboBox>
+      <TextBox VarName="Remarks" Question="Remarks" Width="150" ToolTip="Freetext remarks if necessary" Watermark="Freetext remarks if necessary"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">DI.FT-A*[AccNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-C*[ConsultantCode]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-O*[OrderNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-S*[ServiceFeeAmt][TransactionType]/[ServiceFeeReasonCode]/[MergeFee]/TAS/[MPDNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-T*[ServiceFeeTravelType]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-M*[Remarks]</RunCommand>
+  </ButtonConf>
+   <ButtonConf TerminalInteraction="True" ButtonName="Protea Travel Air Ticket" Description="Protea Travel Air Ticket" QuickCommand="#PRAIRTKT">
+    <QuestionsBlock WindowFormTitle="Protea Travel Air Ticket">
+      <TextBox VarName="AccNumber" Question="Account Number" Width="150" ToolTip="Account Number" Watermark="A*"></TextBox>
+      <TextBox VarName="OrderNumber" Question="Order Number" Width="150" ToolTip="Order Number" Watermark="O*"></TextBox>
+      <TextBox VarName="ConsultantCode" Question="Consultant Code" Width="150" ToolTip="Consultant Code" Watermark="C*"></TextBox>
+      <TextBox VarName="ServiceFeeAmt" Question="Service Fee Amount" Width="150" ToolTip="Service Fee Amount" Watermark="S*"></TextBox>
+      <ComboBox VarName="TransactionType" Question="Transaction Type" ToolTip="Transaction Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Each">EA</ComboBoxItem>
+        <ComboBoxItem Comment="Per Invoice">IN</ComboBoxItem>
+        <ComboBoxItem Comment="Per Passenger">PX</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="ServiceFeeReasonCode" Question="Service Fee Reason Code" ToolTip="Service Fee Reason Code" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic">SER</ComboBoxItem>
+        <ComboBoxItem Comment="International">SEI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional">REE</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="MergeFee" Question="Merge Fee" ToolTip="Merge Fee" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Yes">Y</ComboBoxItem>
+        <ComboBoxItem Comment="No">N</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="ServiceFeeTravelType" Question="Service Fee Travel Type" ToolTip="Service Fee Travel Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Fee">DOM</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Redemption">DOR</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Revalidation">RVD</ComboBoxItem>
+        <ComboBoxItem Comment="International Business Class">ICB</ComboBoxItem>
+        <ComboBoxItem Comment="International Economy Class">ICE</ComboBoxItem>
+        <ComboBoxItem Comment="International First Class">ICF</ComboBoxItem>
+        <ComboBoxItem Comment="International Redemption">INR</ComboBoxItem>
+        <ComboBoxItem Comment="International Fee">INT</ComboBoxItem>
+        <ComboBoxItem Comment="International Revalidation">RVI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Fee">REG</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Redemption">RER</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Revalidation">RVR</ComboBoxItem>
+        <ComboBoxItem Comment="International Premium Economy">IPE</ComboBoxItem>
+      </ComboBox>
+      <TextBox VarName="Remarks" Question="Remarks" Width="150" ToolTip="Freetext remarks if necessary" Watermark="Freetext remarks if necessary"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">DI.FT-A*[AccNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-C*[ConsultantCode]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-O*[OrderNumber]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-S*[ServiceFeeAmt][TransactionType]/[ServiceFeeReasonCode]/[MergeFee]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-T*[ServiceFeeTravelType]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-M*[Remarks]</RunCommand>
+  </ButtonConf>
+   <ButtonConf TerminalInteraction="True" ButtonName="Protea Travel Air Ticket Multi/Pax" Description="Protea Travel Air Ticket Multi/Pax" QuickCommand="#PRAIRTKTMULTI">
+    <QuestionsBlock WindowFormTitle="Protea Travel Air Ticket Multi/Pax">
+      <TextBox VarName="ServiceFeeAmt" Question="Service Fee Amount" Width="150" ToolTip="Service Fee Amount" Watermark="S*"></TextBox>
+      <ComboBox VarName="ServiceFeeReasonCode" Question="Service Fee Reason Code" ToolTip="Service Fee Reason Code" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic">SER</ComboBoxItem>
+        <ComboBoxItem Comment="International">SEI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional">REE</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="TransactionType" Question="Transaction Type" ToolTip="Transaction Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Each">EA</ComboBoxItem>
+        <ComboBoxItem Comment="Per Invoice">IN</ComboBoxItem>
+        <ComboBoxItem Comment="Per Passenger">PX</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="MergeFee" Question="Merge Fee" ToolTip="Merge Fee" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Yes">Y</ComboBoxItem>
+        <ComboBoxItem Comment="No">N</ComboBoxItem>
+      </ComboBox>
+      <ComboBox VarName="ServiceFeeTravelType" Question="Service Fee Travel Type" ToolTip="Service Fee Travel Type" SelectedItemIndex="1">
+        <ComboBoxItem Comment="Select"></ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Fee">DOM</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Redemption">DOR</ComboBoxItem>
+        <ComboBoxItem Comment="Domestic Revalidation">RVD</ComboBoxItem>
+        <ComboBoxItem Comment="International Business Class">ICB</ComboBoxItem>
+        <ComboBoxItem Comment="International Economy Class">ICE</ComboBoxItem>
+        <ComboBoxItem Comment="International First Class">ICF</ComboBoxItem>
+        <ComboBoxItem Comment="International Redemption">INR</ComboBoxItem>
+        <ComboBoxItem Comment="International Fee">INT</ComboBoxItem>
+        <ComboBoxItem Comment="International Revalidation">RVI</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Fee">REG</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Redemption">RER</ComboBoxItem>
+        <ComboBoxItem Comment="Regional Revalidation">RVR</ComboBoxItem>
+        <ComboBoxItem Comment="International Premium Economy">IPE</ComboBoxItem>
+      </ComboBox>
+      <TextBox VarName="Remarks" Question="Remarks" Width="150" ToolTip="Freetext remarks if necessary" Watermark="Freetext remarks if necessary"></TextBox>
+    </QuestionsBlock>
+    <RunCommand StandardCommand="true">DI.FT-S*[ServiceFeeAmt][TransactionType]/[ServiceFeeReasonCode]/[MergeFee]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-T*[ServiceFeeTravelType]</RunCommand>
+    <RunCommand StandardCommand="true">DI.FT-M*[Remarks]</RunCommand>
+  </ButtonConf>
+  </AllScripts>
